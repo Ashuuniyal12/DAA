@@ -12,7 +12,7 @@ public class Ques10 {
         int R[] = new int[n2];
 
         for (int i = 0; i < n1; ++i)
-            L[i] = arr[l + 1];
+            L[i] = arr[l + i];
         for (int j = 0; j < n2; ++j)
             R[j] = arr[m + 1 + j];
 
@@ -44,7 +44,7 @@ public class Ques10 {
 
     private static void mergeSort(int[] arr, int l, int h) {
         if (l < h) {
-            int m = l + (h - l) / 2;
+            int m = (l + h)/ 2;
             mergeSort(arr, l, m);
             mergeSort(arr, m + 1, h);
             merge(arr, l, m, h);
