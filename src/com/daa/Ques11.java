@@ -52,7 +52,7 @@ public class Ques11 {
             System.out.println("Enter the size of the array: ");
             int n = sc.nextInt();
             int arr[] = new int[n];
-            System.out.println("Enter elements : ");
+            System.out.println("Enter elāements : ");
             for (int i = 0; i < n; i++)
                 arr[i] = sc.nextInt();
             quickSort(arr, 0, arr.length - 1);
