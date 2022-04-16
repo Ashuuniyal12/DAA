@@ -3,6 +3,7 @@ package com.daa;
 import java.util.Scanner;
 
 public class Ques10 {
+    static int swap =0 , comp = 0;
 
     private static void merge(int[] arr, int l, int m, int h) {
         int n1 = m - l + 1;
@@ -19,6 +20,7 @@ public class Ques10 {
         int i = 0, j = 0;
         int k = l;
         while (i < n1 && j < n2) {
+            swap++;
             if (L[i] <= R[j]) {
                 arr[k] = L[i];
                 i++;
@@ -44,11 +46,13 @@ public class Ques10 {
 
     private static void mergeSort(int[] arr, int l, int h) {
         if (l < h) {
+            comp++;
             int m = (l + h)/ 2;
             mergeSort(arr, l, m);
             mergeSort(arr, m + 1, h);
             merge(arr, l, m, h);
         }
+
     }
 
     public static void main(String[] args) {
@@ -57,15 +61,21 @@ public class Ques10 {
         int t = sc.nextInt();
 
         while (t != 0) {
+
             System.out.println("Enter the size of the array: ");
             int n = sc.nextInt();
             int arr[] = new int[n];
             System.out.println("Enter elements : ");
             for (int i = 0; i < n; i++)
                 arr[i] = sc.nextInt();
+
             mergeSort(arr, 0, arr.length - 1);
+
             for (int i = 0; i < n; i++)
                 System.out.print(arr[i]+" ");
+
+            System.out.println("\nComparisons ="+comp);
+            System.out.println("Swaps = "+swap);
             t--;
         }
     }
