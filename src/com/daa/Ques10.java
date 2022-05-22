@@ -29,8 +29,8 @@ public class Ques10 {
                 j++;
             }
             k++;
-
         }
+
         while (i < n1) {
             arr[k] = L[i];
             i++;

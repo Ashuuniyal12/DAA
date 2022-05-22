@@ -6,6 +6,7 @@ public class Ques12 {
 
     private static int findMax(int[] arr) {
         int max = arr[0];
+
         for (int i = 0; i < arr.length; i++) {
             if (max <= arr[i]) {
                 max = arr[i];
@@ -16,18 +17,22 @@ public class Ques12 {
 
     private static void countSort(int[] arr) {
         int max = findMax(arr);
+        int output[] = new int[arr.length];
         int countarray[] = new int[max + 1];
 
         for (int i = 0; i < arr.length; i++) {
             countarray[arr[i]]++;
         }
 
-        int j = 0;
-        for (int i = 0; i <max+1; i++) {
-            if (countarray[i] > 0) {
-                arr[j++] = i;
-                countarray[i]--;
-            }
+        for (int i = 1; i < countarray.length; i++) {
+            countarray[i] += countarray[i - 1];
+        }
+
+        for (int i = arr.length - 1; i >= 0; i--) {
+            output[--countarray[arr[i]]] = arr[i];
+        }
+        for (int i = 0; i < output.length; i++) {
+            arr[i] = output[i];
         }
     }
 
@@ -46,13 +51,13 @@ public class Ques12 {
 
             countSort(arr);
 
-            for(int item : arr)
-                System.out.print(item+" ");
+            for (int item : arr)
+                System.out.print(item + " ");
 
             System.out.println("Enter the Kth index value ");
             int k = sc.nextInt();
-            if(k-1<arr.length)
-                System.out.println(arr[k-1]);
+            if (k - 1 < arr.length)
+                System.out.println(arr[k - 1]);
             else
                 System.out.println("Not Present ");
             t--;
