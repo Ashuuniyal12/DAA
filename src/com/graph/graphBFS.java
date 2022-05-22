@@ -6,25 +6,25 @@ import java.util.Scanner;
 
 public class graphBFS {
 
-    private LinkedList<Integer> adj[];
+    private LinkedList<LinkedList> adj;
 
     graphBFS(int v) {
-        adj = new LinkedList[v];
+        adj = new LinkedList<>();
         for (int i = 0; i < v; i++) {
-          adj[i] = new LinkedList<Integer>();
+          adj.add(i, new LinkedList<Integer>());
         }
     }
 
     public void addEle(int source, int destination) {
-        adj[source].add(destination);
-        adj[destination].add(source);
-    }
+            adj.get(source).add(destination);
+            adj.get(destination).add(source);
+        }
 
     public void bfs(int source, int destination) {
 
-        boolean visited[] = new boolean[adj.length];
+        boolean visited[] = new boolean[adj.size()];
         Queue<Integer> queue = new LinkedList<Integer>();
-        int parent[] = new int[adj.length];
+        int parent[] = new int[adj.size()];
 
         queue.add(source);
         parent[source] = -1;
@@ -34,7 +34,7 @@ public class graphBFS {
             int cur = queue.poll();
             if (cur == destination) break;
 
-            for (Object neigh : adj[cur]) {
+            for (Object neigh : adj.get(cur)) {
 
                 if (!visited[(int) neigh]) {
                     queue.add((Integer) neigh);
