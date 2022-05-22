@@ -1,8 +1,6 @@
 package com.graph;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
 public class graphBFS {
 
@@ -11,14 +9,14 @@ public class graphBFS {
     graphBFS(int v) {
         adj = new LinkedList<>();
         for (int i = 0; i < v; i++) {
-          adj.add(i, new LinkedList<Integer>());
+            adj.add(i, new LinkedList<Integer>());
         }
     }
 
     public void addEle(int source, int destination) {
-            adj.get(source).add(destination);
-            adj.get(destination).add(source);
-        }
+        adj.get(source).add(destination);
+        adj.get(destination).add(source);
+    }
 
     public void bfs(int source, int destination) {
 
