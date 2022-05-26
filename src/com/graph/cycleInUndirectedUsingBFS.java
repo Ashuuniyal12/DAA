@@ -16,7 +16,8 @@ public class cycleInUndirectedUsingBFS {
 
     cycleInUndirectedUsingBFS(int v) {
         adj = new LinkedList<>();
-        for (int i = 0; i < v; i++) {
+        for (int i = 0; i <=v; i++) {   // start from 0 and end before v if graph start from 0
+                                                // and start from 0 end at v if start from 1
             adj.add(i, new LinkedList<Integer>());
         }
     }
