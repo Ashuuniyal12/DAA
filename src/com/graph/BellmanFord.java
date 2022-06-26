@@ -24,6 +24,7 @@ public class BellmanFord {
             for (Pir ele : adj) {
                 if (dis[ele.u] + ele.w < dis[ele.v])
                     dis[ele.v] = ele.w + dis[ele.u];
+
             }
         }
         boolean flg = false;
